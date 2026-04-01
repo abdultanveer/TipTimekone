@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.tiptime.data.RoomViewModel
 
 class RoomActivity : ComponentActivity() {
 
@@ -26,7 +27,7 @@ class RoomActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(vm: MainViewModel = viewModel()) {
+fun MainScreen(vm: RoomViewModel = viewModel()) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
