@@ -10,16 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TipTime"
         tools:targetApi="33">
-
         <activity
-            android:name=".MainActivity"
+            android:name=".RoomActivity"
             android:exported="true"
+            android:label="@string/title_activity_room"
             android:theme="@style/Theme.TipTime">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TipTime">
+
         </activity>
     </application>
 
