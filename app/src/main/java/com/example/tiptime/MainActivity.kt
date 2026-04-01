@@ -109,6 +109,9 @@ class MainActivity : ComponentActivity() {
 fun TipTimeLayout(viewModel: MainViewModel = viewModel()) {
     val count by viewModel.count.collectAsState()
     //var count = 0
+   // val time = viewModel.timeRemaining
+    val time by viewModel.time.collectAsState()
+
     var amountInput by remember { mutableStateOf("") }
 
     val amount = amountInput.toDoubleOrNull() ?: 0.0
@@ -138,9 +141,14 @@ fun TipTimeLayout(viewModel: MainViewModel = viewModel()) {
             text = ""+count,
             style = MaterialTheme.typography.displaySmall
         )
+        Text(
+            text = ""+time,
+            style = MaterialTheme.typography.displaySmall
+        )
         Spacer(modifier = Modifier.height(150.dp))
         Button(onClick = {
-            viewModel.incrementCount()
+           // viewModel.incrementCount()
+            viewModel.startTimer()
         }) {
             Text(
                 text = "Count: $count",
