@@ -1,23 +1,18 @@
-package com.example.tiptime.data
-
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tiptime.data.User
+import com.example.tiptime.data.UserDao
 import kotlinx.coroutines.launch
 
-class RoomViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val userDao = AppDatabase
-        .getDatabase(application)
-        .userDao()
+class RoomViewModel(
+    private val userDao: UserDao
+) : ViewModel() {
 
     fun insertData() {
         viewModelScope.launch {
             val user = User(name = "User ${System.currentTimeMillis()}")
             userDao.insert(user)
-
-            Log.d("DEMO", "Inserted: ${user.name}")
         }
     }
 
